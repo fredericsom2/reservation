@@ -3,7 +3,7 @@
 class Reservation {
 
 
-// création de plsuieurs classe
+// création de plusieurs classe
 	public $name;
 
 	public $place;
@@ -28,12 +28,13 @@ $reservation = new Reservation();
 
 // utilisateur envoie ces valeurs
 // temporairement "en dur"
-$reservation->name = "David Robert";
-$reservation->place = "Château de Versailles";
+
+$reservation->name = "Fred Som";
+$reservation->place = "hotel bali";
 $reservation->startDate = new DateTime("25-04-15");
 $reservation->endDate = new DateTime("25-05-17");
 $reservation->cleaningOption = true;
-$reservation->nightPrice = 1000;
+$reservation->nightPrice = 100;
 
 // valeurs calculées automatiquement (calcul du prix total)
 $totalPrice = (($reservation->endDate->getTimestamp() - $reservation->startDate->getTimestamp()) / (3600 * 24) * $reservation->nightPrice) + 5000;
