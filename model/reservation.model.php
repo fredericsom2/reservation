@@ -22,7 +22,9 @@ class Reservation {
 
         public $cleaningOption;
 
-        public function __construct() {
+
+        //"_construct" Sa fonction est d'initialiser un objet quand tu le crées avec new
+        public function __construct($name, $place, $startDate, $endDate, $cleaningOption) {
         
 
 // je rempli chaque propriété via la variable 
@@ -45,8 +47,22 @@ class Reservation {
         }
     }
 
-// création d'un objet avec le mot clé "new" et stocké dans la class $reservation
-$reservation = new Reservation();
+// création d'un objet avec le mot clé "new" et stocké dans la class $reservation$
+// il contient toutes les propiétés de la class
+
+
+
+// Création de variables pour passer au constructeur
+$name = "Fred Som";
+$place = "tahiti";
+$start = new DateTime('2025-04-08');
+$end = new DateTime('2025-04-10');
+$cleaningOption = false;
+
+
+
+// Création d'un objet Reservation avec les données ci-dessus
+$reservation = new Reservation($name, $place, $end, $cleaningOption);
 
 // utilisation de vardump pour vérifier 
 var_dump($reservation); 
