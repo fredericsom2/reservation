@@ -44,25 +44,39 @@ class Reservation {
             $this->totalPrice = $totalPrice;
             $this->bookedAt = new DateTime();
             $this->status = "CART";
-        }
-    }
 
-// création d'un objet avec le mot clé "new" et stocké dans la class $reservation$
-// il contient toutes les propiétés de la class
+        }
+
+        // Méthode pour annuler une réservation
+       
+    public function cancel() {
+         // Si le statut est "CART", on peut annuler la réservation
+        // On change alors le statut en "CANCELED"
+        if($this->status === "CART"){
+            $this ->status = "CANCELED";
+
+        }
+    }  
+
+}
+
+
 
 
 
 // Création de variables pour passer au constructeur
 $name = "Fred Som";
 $place = "tahiti";
-$start = new DateTime('2025-04-08');
-$end = new DateTime('2025-04-10');
+$startDate= new DateTime('2025-04-08');
+$endDate= new DateTime('2025-04-10');
 $cleaningOption = false;
 
 
+// création d'un objet avec le mot clé "new" et stocké dans la class $reservation$
+// il contient toutes les propiétés de la class
+$reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
 
-// Création d'un objet Reservation avec les données ci-dessus
-$reservation = new Reservation($name, $place, $end, $cleaningOption);
+$reservation->cancel();
 
 // utilisation de vardump pour vérifier 
 var_dump($reservation); 
