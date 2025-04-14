@@ -23,11 +23,10 @@ class Reservation {
 	public $cleaningOption;
 }
 
-// création d'un objet avec le mot clé "new"
+// création d'un objet avec le mot clé "new" et stocké dans la class $reservation
 $reservation = new Reservation();
 
-// utilisateur envoie ces valeurs
-// temporairement "en dur"
+// je rempli chaque propriété via la variable 
 
 $reservation->name = "Fred Som";
 $reservation->place = "hotel bali";
