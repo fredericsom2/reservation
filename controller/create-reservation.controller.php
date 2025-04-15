@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 	// je regarde si cleaning option a été sélectionné et je transforme la valeur
 	// de l'input en true ou false (boulean)
-	if ($_POST['cleaning-option'] === "on") {
+	if (isset($_POST['cleaning-option']) && $_POST['cleaning-option'] === "on") {
 		$cleaningOption = true;
 	} else {
 		$cleaningOption = false;
@@ -27,8 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	// je créé une réservation : une instance de classe, en lui envoyant les données attendues
 	$reservation = new reservation($name, $place, $startDate, $endDate, $cleaningOption);
 
-	// je créé un message incluant le prix de la réservation (calculé automatiquement par ma classe Reservation)
-	$message = "Votre réservation est confirmée, au prix de " . $reservation->totalPrice;
+
 
 }
 
