@@ -58,6 +58,7 @@
 		<p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
 	<?php } ?>
 	
+	
 
 	<?php if  (!is_null($reservation)) { ?> 
 		<!-- ?php if ($reservation n'est pas null) { ?>
