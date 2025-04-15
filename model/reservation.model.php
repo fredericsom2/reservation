@@ -22,6 +22,14 @@ class Reservation {
 
         public $cleaningOption;
 
+        public $cancelAt;
+
+        public $leaveComment;
+
+        public $pay;
+
+      
+
 
         //"_construct" Sa fonction est d'initialiser un objet quand tu le crées avec new
         public function __construct($name, $place, $startDate, $endDate, $cleaningOption) {
@@ -48,17 +56,38 @@ class Reservation {
         }
 
         // Méthode pour annuler une réservation
-       
-    public function cancel() {
-         // Si le statut est "CART", on peut annuler la réservation
+       // Si le statut est "CART", on peut annuler la réservation
         // On change alors le statut en "CANCELED"
-        if($this->status === "CART"){
-            $this ->status = "CANCELED";
+    public function cancel() { 
+        if($this->status === "CART")
+            $this ->status = "CANCELED";}
+        
 
+        // fonction qui permet stocker dans la classe la date d'annulation quand la reservation est annulée
+    public function cancelAt(){
+            if ($this->status === "Cancel")
+            $this->cancelAt = "DateTime";}
+
+
+
+        // fonction qui stocke dans une propriété "comment" un commentaire (texte) et stocke aussi dans une propriété la date à laquelle ça a été commenté
+    public function leaveComment(){
+            if ($this->status === "Comment")
+            $this->leaveComment = "DateTime";}
+
+
+
+        // (fonction), qui permet de mettre le status de la réservation en "PAID" et de stocker dans une propriété la date à laquelle le paiement a été fait
+    public function pay(){
+                if ($this->status === "PAIS")
+                $this->leaveComment = "DateTime";}
+    
+
+    
         }
-    }  
+    
 
-}
+
 
 
 
