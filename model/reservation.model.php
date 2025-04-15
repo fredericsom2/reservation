@@ -2,7 +2,6 @@
 
 class Reservation {
 
-
 // création de plusieurs classe
         public $name;
 
@@ -24,20 +23,19 @@ class Reservation {
 
         public $cancelAt;
 
-        public $leaveComment;
+        public $paidAt;
 
-        public $pay;
+        public $comment;
 
-      
-
+        public $commentedAt;
+        
 
         //"_construct" Sa fonction est d'initialiser un objet quand tu le crées avec new
         public function __construct($name, $place, $startDate, $endDate, $cleaningOption) {
         
 
-// je rempli chaque propriété via la variable 
-
-// "this" fait reference à la classe actuelle 
+        // je rempli chaque propriété via la variable 
+        // "this" fait reference à la classe actuelle 
 
             $this->name = "Fred Som";
             $this->place = "hotel bali";
@@ -49,48 +47,40 @@ class Reservation {
             // valeurs calculées automatiquement (calcul du prix total)
             $totalPrice = (($this->endDate->getTimestamp() - $this->startDate->getTimestamp()) / (3600 * 24) * $this->nightPrice) + 5000;
 
+
             $this->totalPrice = $totalPrice;
             $this->bookedAt = new DateTime();
             $this->status = "CART";
-
         }
+
 
         // Méthode pour annuler une réservation
-       // Si le statut est "CART", on peut annuler la réservation
+        // Si le statut est "CART", on peut annuler la réservation
         // On change alors le statut en "CANCELED"
-    public function cancel() { 
-        if($this->status === "CART")
-            $this ->status = "CANCELED";}
+        public function cancel() {
+            if ($this->status === "CART") {
+                $this->status = "CANCELED";
+                $this->canceledAt = new DateTime();
+            }}
+
+
         
-
-        // fonction qui permet stocker dans la classe la date d'annulation quand la reservation est annulée
-    public function cancelAt(){
-            if ($this->status === "Cancel")
-            $this->cancelAt = "DateTime";}
-
-
-
-        // fonction qui stocke dans une propriété "comment" un commentaire (texte) et stocke aussi dans une propriété la date à laquelle ça a été commenté
-    public function leaveComment(){
-            if ($this->status === "Comment")
-            $this->leaveComment = "DateTime";}
+        // fonction, qui permet de mettre le status de la réservation en "PAID" et de stocker dans une propriété la date à laquelle le paiement a été fait
+        // si le statut de la réservation est "CART" alors on peut passer le statut en "PAID"
+            public function pay() {
+                if ($this->status === 'CART') {
+                    $this->status = "PAID";
+                    $this->paidAt = new DateTime();
+        }}
 
 
 
-        // (fonction), qui permet de mettre le status de la réservation en "PAID" et de stocker dans une propriété la date à laquelle le paiement a été fait
-    public function pay(){
-                if ($this->status === "PAIS")
-                $this->leaveComment = "DateTime";}
+        public function leaveComment($userComment){
+            if ($this->status === "PAID") {
+                $this->comment = $userComment;
+                $this->commentedAt = new DateTime();
+        }}}
     
-
-    
-        }
-    
-
-
-
-
-
 
 
 // Création de variables pour passer au constructeur
@@ -103,9 +93,16 @@ $cleaningOption = false;
 
 // création d'un objet avec le mot clé "new" et stocké dans la class $reservation$
 // il contient toutes les propiétés de la class
+
+// la variable reservation contient une instance de la classe Reservation / un objet issu de la classe Reservation
+// l'objet reservation contient toutes les propriétés (name etc) définies dans la classe
+// et peut appeler toutes les fonctions définies dans la classe
 $reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
 
-$reservation->cancel();
+// j'appelle la méthode pay de l'objet reservation. L'objet reservation a récupéré la méthode pay de la classe Reservation
+$reservation->pay();
 
-// utilisation de vardump pour vérifier 
-var_dump($reservation); 
+
+
+$reservation->leaveComment("Super séjour au château de Versailles. Petit bémol pour la hauteur sous plafond. Le wifi marche BOF.");
+
