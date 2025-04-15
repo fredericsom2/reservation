@@ -1,7 +1,7 @@
 <?php 
 
 require_once('../config.php');
-require_once('../model/Reservation.model.php');
+require_once('../model/reservation.model.php');
 
 // je créé un message vide
 $message = "";
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$endDate =  new DateTime($_POST['end-date']);
 
 	// je regarde si cleaning option a été sélectionné et je transforme la valeur
-	// de l'input en true ou false
+	// de l'input en true ou false (boulean)
 	if ($_POST['cleaning-option'] === "on") {
 		$cleaningOption = true;
 	} else {
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	}
 	
 	// je créé une réservation : une instance de classe, en lui envoyant les données attendues
-	$reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
+	$reservation = new reservation($name, $place, $startDate, $endDate, $cleaningOption);
 
 	// je créé un message incluant le prix de la réservation (calculé automatiquement par ma classe Reservation)
 	$message = "Votre réservation est confirmée, au prix de " . $reservation->totalPrice;

@@ -1,32 +1,19 @@
 <?php
-
 class Reservation {
 
 // création de plusieurs classe
         public $name;
-
         public $place;
-
         public $startDate;
-
         public $endDate;
-
         public $totalPrice;
-
         public $nightPrice;
-
         public $status;
-
         public $bookedAt;
-
         public $cleaningOption;
-
         public $cancelAt;
-
         public $paidAt;
-
         public $comment;
-
         public $commentedAt;
         
 
@@ -36,7 +23,6 @@ class Reservation {
 
         // je rempli chaque propriété via la variable 
         // "this" fait reference à la classe actuelle 
-
             $this->name = "Fred Som";
             $this->place = "hotel bali";
             $this->startDate = new DateTime("25-04-15");
@@ -47,11 +33,11 @@ class Reservation {
             // valeurs calculées automatiquement (calcul du prix total)
             $totalPrice = (($this->endDate->getTimestamp() - $this->startDate->getTimestamp()) / (3600 * 24) * $this->nightPrice) + 5000;
 
-
             $this->totalPrice = $totalPrice;
             $this->bookedAt = new DateTime();
             $this->status = "CART";
         }
+
 
 
         // Méthode pour annuler une réservation
@@ -60,7 +46,7 @@ class Reservation {
         public function cancel() {
             if ($this->status === "CART") {
                 $this->status = "CANCELED";
-                $this->canceledAt = new DateTime();
+                $this->cancelAt = new DateTime();
             }}
 
 
