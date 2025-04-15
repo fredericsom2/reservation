@@ -54,21 +54,24 @@
 
 	</form>
 
-
+	<?php if (!is_null($error)) { ?>
+		<p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
+	<?php } ?>
 	
 
 	<?php if  (!is_null($reservation)) { ?> 
 		<!-- ?php if ($reservation n'est pas null) { ?>
-Ce code vérifie si la variable $reservation n'est pas nulle. 
-Si ce n'est pas le cas, le code à l'intérieur des accolades {} sera exécuté. -->
+		Ce code vérifie si la variable $reservation n'est pas nulle. 
+		Si ce n'est pas le cas, le code à l'intérieur des accolades {} sera exécuté. -->
 		<div>
-			<p>Récapitulatif de la réservation : </p>
-			<p> Nom : <?php echo $reservation ->name; ?></p>
-			<p>Lieu : <?php echo $reservation->place; ?></p>
-			<p>Dates : <?php echo $reservation->startDate->format('d-m-y'); ?> / <?php echo $reservation->endDate->format('d-m-y'); ?></p>
-			<p>Prix total : <?php echo $reservation->totalPrice; ?></p>
-			<p>Option de ménage ? : <?php echo $reservation->cleaningOption ? "oui" : "non"; ?></p>
+				<p>Récapitulatif de la réservation : </p>
+				<p> Nom : <?php echo $reservation ->name; ?></p>
+				<p>Lieu : <?php echo $reservation->place; ?></p>
+				<p>Dates : <?php echo $reservation->startDate->format('d-m-y'); ?> / <?php echo $reservation->endDate->format('d-m-y'); ?></p>
+				<p>Prix total : <?php echo $reservation->totalPrice; ?></p>
+				<p>Option de ménage ? : <?php echo $reservation->cleaningOption ? "oui" : "non"; ?></p>
 		</div>
+
 		<?php } ?>
 </main>
 
