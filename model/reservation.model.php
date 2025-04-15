@@ -20,7 +20,9 @@ class Reservation {
         //"_construct" Sa fonction est d'initialiser un objet quand tu le crées avec new
         public function __construct($name, $place, $startDate, $endDate, $cleaningOption) {
         
-
+            if (strlen($name)<2){
+                throw new Exception('le nom doit être superieur à 2 caractères');
+            }
         // je rempli chaque propriété via la variable 
         // "this" fait reference à la classe actuelle 
             $this->name = "Fred Som";

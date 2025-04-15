@@ -55,7 +55,7 @@
 	</form>
 
 
-	<h2><?php echo $message; ?></h2>
+	
 
 	<?php if  (!is_null($reservation)) { ?> 
 		<!-- ?php if ($reservation n'est pas null) { ?>

@@ -3,8 +3,12 @@
 require_once('../config.php');
 require_once('../model/reservation.model.php');
 
+
+// création de variable qui attribut des valeurs "null"
+$reservation = null;
+$error = null;
+
 // je créé un message vide
-$message = "";
 
 // je vérifie si le form a été envoyé
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -22,10 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		$cleaningOption = true;
 	} else {
 		$cleaningOption = false;
+
+	try {
+			// je créé une réservation : une instance de classe, en lui envoyant les données attendues
+			$reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
+		} catch(Exception $e) {
+			$error = $e->getMessage();
 	}
 	
-	// je créé une réservation : une instance de classe, en lui envoyant les données attendues
-	$reservation = new reservation($name, $place, $startDate, $endDate, $cleaningOption);
+	}
 
 
 
