@@ -21,7 +21,7 @@
 
 <main>
 	
-	<h1>Annuler une réservation</h1>
+	<h1>Payer une reservation</h1>
 
 	
 	
@@ -44,7 +44,7 @@
 		<form method="POST">
 
 <div>
-	<button type="submit">Annuler la réservation</button>
+	<button type="submit">Payer la réservation</button>
 </div>
 
 </form>

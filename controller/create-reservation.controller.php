@@ -4,7 +4,6 @@ require_once('../config.php');
 require_once('../model/reservation.model.php');
 require_once('../model/reservation.repository.php');
 
-
 // création de variable qui attribut des valeurs "null"
 $reservation = null;
 $error = null;
