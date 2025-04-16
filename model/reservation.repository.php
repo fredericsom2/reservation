@@ -9,7 +9,7 @@ function persistReservation($reservation){
 // sur l'utilisateur entre les requêtes HTTP, ce qui est particulièrement utile pour gérer 
 // des informations comme les identifiants de connexion, les préférences utilisateur, 
 // et d'autres données temporaires.
-    session_start();
+ 
 
 
 // "$_SESSION" permet de stocker une memoire temporaire
