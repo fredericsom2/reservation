@@ -13,14 +13,23 @@ function persistReservation($reservation){
 
 
 // "$_SESSION" permet de stocker une memoire temporaire
-    $_SESSION["reservation"]=$reservation
+    $_SESSION["reservation"]=$reservation;
 
 }
 
 
 //  findReservationForUser, qui retourne la reservation enregistrée dans la session 
-function finReservationForUser () {
+function findReservationForUser () {
 
     session_start();
-    return $_SESSION ["reservation"];
+
+    // ce code permet de récupérer la valeur de la session associée 
+    // à la clé 'reservation' si elle existe, sinon il retourne null
+
+    if (array_key_exists('reservation', $_SESSION)) {
+        return $_SESSION["reservation"];
+    } else {
+        return null;
+    }
 }
+

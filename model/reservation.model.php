@@ -92,5 +92,5 @@ $reservation->pay();
 
 
 
-$reservation->leaveComment("Super séjour au château de Versailles. Petit bémol pour la hauteur sous plafond. Le wifi marche BOF.");
+$reservation->leaveComment("Super séjour à Bali");
 

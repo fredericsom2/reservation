@@ -21,43 +21,10 @@
 
 <main>
 	
-	<h1>Créer une réservation</h1>
+	<h1>Annuler une réservation</h1>
 
-	<form method="POST">
-
-		<label>Nom
-			<input type="text" name="name">
-		</label>
-
-		<label>Lieu
-			<select name="place">
-				<option value="hotel Bali">hotel Bali</option>
-				<option value="hotel Trump">hotel Trump</option>
-				<option value="hotel Hendaye">hotel Hendaye</option>
-				<option value="hotel Martinique">hotel Martinique</option>
-			</select>
-		</label>
-
-		<label>Date de début
-			<input type="date" name="start-date">
-		</label>
-
-		<label>Date de fin
-			<input type="date" name="end-date">
-		</label>
-
-		<label>Option de ménage ?
-			<input type="checkbox" name="cleaning-option">
-		</label>
-
-		<button type="submit">Créer la réservation</button>
-
-	</form>
-
-	<?php if (!is_null($error)) { ?>
-		<p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
-	<?php } ?>
 	
+		<button type="submit">Annuler la réservation</button>
 	
 
 	<?php if  (!is_null($ReservationForUser)) { ?> 
